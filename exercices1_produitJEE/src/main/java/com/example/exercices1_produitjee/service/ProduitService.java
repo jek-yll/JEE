@@ -41,18 +41,21 @@ public class ProduitService extends BaseService implements Repository<Produit> {
 
     @Override
     public Produit findById(int id) {
+        begin();
         Produit produit = null;
         session = sessionFactory.openSession();
-        //produit = (Produit) session.get(Produit.class, id);
+        produit = session.get(Produit.class, id);
         session.close();
         return produit;
     }
 
     @Override
     public List<Produit> findAll() {
+        begin();
         List<Produit> produitList = null;
         Query<Produit> produitQuery = session.createQuery("from Produit");
         produitList = produitQuery.list();
+        session.close();
         return produitList;
     }
 

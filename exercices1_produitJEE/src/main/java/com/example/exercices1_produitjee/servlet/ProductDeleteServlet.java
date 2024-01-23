@@ -4,27 +4,28 @@ import com.example.exercices1_produitjee.model.Produit;
 import com.example.exercices1_produitjee.service.ProduitService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "products", value = "/products")
-public class ProductServlet extends HelloServlet{
+@WebServlet(name = "delete", value = "/delete")
+public class ProductDeleteServlet extends HttpServlet {
 
     private ProduitService ps;
-    private List<Produit> produitList;
+    private Produit p;
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
         ps = new ProduitService();
-        produitList = ps.findAll();
     }
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("products", produitList);
-        req.getRequestDispatcher("product-list.jsp").forward(req,resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        p = ps.findById(id);
+        ps.delete(p);
+        req.getRequestDispatcher("products");
     }
 }

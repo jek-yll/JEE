@@ -9,8 +9,7 @@
 <h1>Produits
 </h1>
 <br/>
-<a href="hello-servlet">Hello Toto</a>
 </br>
-<a href="product">Liste des produits</a>
+<a href="products">Liste des produits</a>
 </body>
 </html>

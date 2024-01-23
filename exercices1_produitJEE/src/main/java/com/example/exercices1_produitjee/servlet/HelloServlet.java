@@ -2,6 +2,7 @@ package com.example.exercices1_produitjee.servlet;
 
 import java.io.*;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -13,7 +14,7 @@ public class HelloServlet extends HttpServlet {
         message = "Hello Toto!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         // Hello
