@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -5,11 +6,11 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1>Produits
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
-<br/>
-<a href="personne-form.jsp">Ajouter une personne</a>
+<a href="hello-servlet">Hello Toto</a>
+</br>
+<a href="product">Liste des produits</a>
 </body>
 </html>
