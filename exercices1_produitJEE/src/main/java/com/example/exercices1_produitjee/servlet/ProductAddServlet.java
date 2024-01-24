@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "add", value = "/add_product")
 public class ProductAddServlet extends HttpServlet {
@@ -24,10 +26,17 @@ public class ProductAddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String ref = req.getParameter("ref");
-        String brand = req.getParameter("brand");
-        String date = req.getParameter("date");
-        String price = req.getParameter("price");
-        String stock = req.getParameter("stock");
+        String reference = req.getParameter("reference");
+        String marque = req.getParameter("marque");
+        String dateStr = req.getParameter("dateAchat");
+        LocalDate dateAchat = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        double prix = Double.valueOf(req.getParameter("prix"));
+        int stock = Integer.parseInt(req.getParameter("stock"));
+
+        Produit p = new Produit(marque, reference, dateAchat, prix, stock);
+
+        ps.create(p);
+
     }
 }

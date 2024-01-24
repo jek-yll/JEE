@@ -1,6 +1,7 @@
 package com.example.exercices1_produitjee.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -18,7 +19,7 @@ public class Produit {
 
     @Column(name = "purchaseDate")
     @Temporal(TemporalType.DATE)
-    private Date dateAchat;
+    private LocalDate dateAchat;
 
     @Column(name = "price")
     private double prix;
@@ -29,11 +30,16 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(String marque, String reference, Date dateAchat, double prix) {
+    public Produit(String marque, String reference, LocalDate dateAchat, double prix) {
         this.marque = marque;
         this.reference = reference;
         this.dateAchat = dateAchat;
         this.prix = prix;
+    }
+
+    public Produit(String marque, String reference, LocalDate dateAchat, double prix, int stock){
+        this();
+        this.stock = stock;
     }
 
     public int getId() {
@@ -60,11 +66,11 @@ public class Produit {
         this.reference = reference;
     }
 
-    public Date getDateAchat() {
+    public LocalDate getDateAchat() {
         return dateAchat;
     }
 
-    public void setDateAchat(Date dateAchat) {
+    public void setDateAchat(LocalDate dateAchat) {
         this.dateAchat = dateAchat;
     }
 
