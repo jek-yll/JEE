@@ -4,13 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-
-
     <session-factory>
-
-        <mapping class="com.example.exercices1_produitjee.model.Produit"/>
-        <mapping class="com.example.exercices1_produitjee.model.User"/>
-
+        <mapping class="com.example.correctionproduit.entities.Produit" />
     </session-factory>
-
 </hibernate-configuration>

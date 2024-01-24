@@ -1,4 +1,4 @@
-package com.example.exercices1_produitjee.service;
+package com.example.correctionproduit.services;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,9 +18,5 @@ public abstract class BaseService {
         registre = new StandardServiceRegistryBuilder().configure().build();
         sessionFactory = new MetadataSources(registre).buildMetadata().buildSessionFactory();
 
-    }
-
-    public void begin(){
-        session = sessionFactory.openSession();
     }
 }

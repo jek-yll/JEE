@@ -1,16 +1,13 @@
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+  <title>JSP - Hello World</title>
 </head>
 <body>
-<h1>Produits
-</h1>
+<h1><%= "Hello World!" %></h1>
 <br/>
-</br>
-<a href="user">Se connecter</a>
-<a href="products">Liste des produits</a>
+
+<a href="list">Démarrage</a>
 </body>
 </html>

@@ -1,46 +1,46 @@
-package com.example.exercices1_produitjee.model;
+package com.example.correctionproduit.entities;
+
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "product")
 public class Produit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "brand")
     private String marque;
-    @Column(name = "reference")
+
     private String reference;
 
-    @Column(name = "purchaseDate")
-    private LocalDate dateAchat;
+    @Temporal(TemporalType.DATE)
+    private Date dateAchat;
 
-    @Column(name = "price")
     private double prix;
 
-    @Column(name = "stock")
     private int stock;
 
-    private String image;
 
-    public Produit() {
-    }
-
-    public Produit(String marque, String reference, LocalDate dateAchat, double prix) {
+    public Produit(String marque, String reference, Date dateAchat, double prix) {
         this.marque = marque;
         this.reference = reference;
         this.dateAchat = dateAchat;
         this.prix = prix;
     }
 
-    public Produit(String marque, String reference, LocalDate dateAchat, double prix, int stock){
-        this();
+    public Produit(String marque, String reference, Date dateAchat, double prix, int stock) {
+
+        this.marque = marque;
+        this.reference = reference;
+        this.dateAchat = dateAchat;
+        this.prix = prix;
         this.stock = stock;
+    }
+
+    public Produit() {
+
     }
 
     public int getId() {
@@ -67,11 +67,11 @@ public class Produit {
         this.reference = reference;
     }
 
-    public LocalDate getDateAchat() {
+    public Date getDateAchat() {
         return dateAchat;
     }
 
-    public void setDateAchat(LocalDate dateAchat) {
+    public void setDateAchat(Date dateAchat) {
         this.dateAchat = dateAchat;
     }
 
@@ -90,6 +90,7 @@ public class Produit {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
 
     @Override
     public String toString() {

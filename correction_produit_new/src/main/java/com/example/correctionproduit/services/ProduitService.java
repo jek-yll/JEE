@@ -1,9 +1,7 @@
-package com.example.exercices1_produitjee.service;
+package com.example.correctionproduit.services;
 
-
-
-import com.example.exercices1_produitjee.dao.Repository;
-import com.example.exercices1_produitjee.model.Produit;
+import com.example.correctionproduit.entities.Produit;
+import com.example.correctionproduit.interfaces.Repository;
 import org.hibernate.query.Query;
 
 import java.util.Date;

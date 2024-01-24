@@ -26,6 +26,7 @@ public class ProductDeleteServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         p = ps.findById(id);
         ps.delete(p);
-        req.getRequestDispatcher("products");
+        resp.sendRedirect("products");
+        // req.getRequestDispatcher("products").forward(req, resp);
     }
 }
