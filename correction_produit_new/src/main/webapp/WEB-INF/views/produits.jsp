@@ -26,6 +26,7 @@
             <th>Prix</th>
             <th>Stock</th>
             <th>Date achat</th>
+            <th>Image</th>
             <th >Actions</th>
         </tr>
 <c:if test="${produits != null}">
@@ -36,6 +37,7 @@
                 <td>${produit.getPrix()} €</td>
                 <td>${produit.getStock()}</td>
                 <td>${produit.getDateAchat()}</td>
+                <td><img src="../../images/${produit.getImage()}" alt="ECHEC"></td>
                 <td>
                     <a href="edit?id=${produit.getId()}" class="btn btn-info">Edit</a>
                     <a href="delete?id=${produit.getId()}" class="btn btn-danger">Delete</a>

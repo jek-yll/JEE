@@ -13,7 +13,7 @@
         <h2>Ajouter un produit </h2>
     </center>
 <div>
-    <form action="insert" method="post">
+    <form action="insert" method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Marque</label>
@@ -37,6 +37,10 @@
                 <label for="inputAddress3">Stock</label>
                 <input type="date" class="form-control" id="inputAddress3" placeholder="50" name="dateAchat">
             </div>
+        </div>
+        <div>
+            <label for="image" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" id="image"/>
         </div>
         <button type="submit" class="btn btn-primary">Validation</button>
     </form>

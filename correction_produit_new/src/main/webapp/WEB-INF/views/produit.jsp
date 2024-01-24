@@ -11,7 +11,8 @@
 <div class="container">
     <center>
 <div class="card" style="width: 18rem;">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../images/${produit.getImage()}" class="card-img-top" alt="ECHEC">
+<%--    <img src="C:\Users\Administrateur\Desktop\JEE\correction_produit_new\src\main\webapp\images\IphoneSerge.jpg" class="card-img-top" alt="...">--%>
     <div class="card-body">
         <h5 class="card-title">Marque : ${produit.getMarque()}</h5>
         <p class="card-text">${produit.getReference()}</p>

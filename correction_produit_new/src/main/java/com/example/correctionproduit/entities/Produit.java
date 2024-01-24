@@ -22,6 +22,8 @@ public class Produit {
 
     private int stock;
 
+    private String image;
+
 
     public Produit(String marque, String reference, Date dateAchat, double prix) {
         this.marque = marque;
@@ -30,13 +32,14 @@ public class Produit {
         this.prix = prix;
     }
 
-    public Produit(String marque, String reference, Date dateAchat, double prix, int stock) {
+    public Produit(String marque, String reference, Date dateAchat, double prix, int stock, String image) {
 
         this.marque = marque;
         this.reference = reference;
         this.dateAchat = dateAchat;
         this.prix = prix;
         this.stock = stock;
+        this.image = image;
     }
 
     public Produit() {
@@ -91,6 +94,13 @@ public class Produit {
         this.stock = stock;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     @Override
     public String toString() {

@@ -5,11 +5,14 @@ import com.example.correctionproduit.services.ProduitService;
 import com.example.correctionproduit.utils.Definition;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -18,9 +21,11 @@ import java.util.Date;
 import java.util.List;
 
 @WebServlet("/")
+@MultipartConfig(maxFileSize = 1024*1024*10)
 public class ProduitServlet extends HttpServlet {
 
     private ProduitService service;
+
 
 
     public void init() {
@@ -100,18 +105,30 @@ public class ProduitServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
 
-
     }
 
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, ServletException {
 
         String marque = request.getParameter("marque");
         String reference = request.getParameter("reference");
         int stock = Integer.parseInt(request.getParameter("stock"));
         double prix = Double.parseDouble(request.getParameter("prix"));
         LocalDate dateAchat = LocalDate.parse(request.getParameter("dateAchat"));
-        Produit produit = new Produit(marque, reference, Date.from(dateAchat.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), prix, stock);
+
+        String uploadPath = getServletContext().getRealPath("/") + "images";
+
+        File file = new File(uploadPath);
+
+        if (!file.exists()){
+            file.mkdir();
+        }
+
+        Part image = request.getPart("image");
+        String fileName = image.getSubmittedFileName();
+        image.write(uploadPath + File.separator + fileName);
+
+        Produit produit = new Produit(marque, reference, Date.from(dateAchat.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()), prix, stock, image.getSubmittedFileName());
 
         if(service.create(produit)) {
             response.sendRedirect("list");
@@ -135,5 +152,7 @@ public class ProduitServlet extends HttpServlet {
         }
         response.sendRedirect("list");
     }
+
+
 
 }
