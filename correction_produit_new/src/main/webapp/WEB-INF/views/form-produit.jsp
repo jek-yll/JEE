@@ -16,26 +16,26 @@
     <form action="insert" method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Marque</label>
-                <input type="text" class="form-control" id="inputEmail4" name="marque">
+                <label for="marque">Marque</label>
+                <input type="text" class="form-control" id="marque" name="marque">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPassword4">Reference</label>
-                <input type="text" class="form-control" id="inputPassword4" name="reference">
+                <label for="reference">Reference</label>
+                <input type="text" class="form-control" id="reference" name="reference">
             </div>
         </div>
         <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="inputAddress">Prix</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="12" name="prix">
+            <label for="prix">Prix</label>
+            <input type="text" class="form-control" id="prix" placeholder="12" name="prix">
         </div>
         <div class="form-group col-md-4">
-            <label for="inputAddress2">Stock</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="50" name="stock">
+            <label for="stock">Stock</label>
+            <input type="text" class="form-control" id="stock" placeholder="50" name="stock">
         </div>
             <div class="form-group col-md-4">
-                <label for="inputAddress3">Stock</label>
-                <input type="date" class="form-control" id="inputAddress3" placeholder="50" name="dateAchat">
+                <label for="dateAchat">Stock</label>
+                <input type="date" class="form-control" id="dateAchat" placeholder="50" name="dateAchat">
             </div>
         </div>
         <div>

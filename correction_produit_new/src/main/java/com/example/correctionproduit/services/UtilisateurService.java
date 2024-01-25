@@ -9,7 +9,12 @@ public class UtilisateurService extends BaseService implements Repository<Utilis
 
     @Override
     public boolean create(Utilisateur u) {
-        return false;
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(u);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -24,7 +29,11 @@ public class UtilisateurService extends BaseService implements Repository<Utilis
 
     @Override
     public Utilisateur findById(int id) {
-        return null;
+        Utilisateur utilisateur = null;
+        session = sessionFactory.openSession();
+        utilisateur = (Utilisateur) session.get(Utilisateur.class, id);
+        session.close();
+        return utilisateur;
     }
 
     @Override
